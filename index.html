@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Look Bro Quote Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #quoteDisplay {
+            margin: 20px 0;
+            font-size: 24px;
+            font-style: italic;
+            color: #333;
+        }
+        #counter {
+            font-size: 18px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Look Bro Quote Generator</h1>
+        <p>For the @look_solana community</p>
+        <button onclick="generateQuote()">Get a "Look Bro" Quote</button>
+        <div id="quoteDisplay">"Click the button to get inspired!"</div>
+        <div id="counter">Quotes generated: <span id="count">0</span></div>
+    </div>
+
+    <script>
+        const quotes = [
+            "Look bro, every day is a new chance to chase your dreams!",
+            "Look bro, success is just persistence with extra steps.",
+            "Look bro, the only limit is the one you set yourself.",
+            "Look bro, greatness isn't given, it's earned.",
+            "Look bro, stay focused and the world opens up.",
+            "Look bro, your potential is waiting to be unleashed.",
+            "Look bro, keep pushing - the best is yet to come.",
+            "Look bro, every setback is a setup for a comeback."
+        ];
+
+        let counter = localStorage.getItem('quoteCounter') ? 
+            parseInt(localStorage.getItem('quoteCounter')) : 0;
+
+        document.getElementById('count').textContent = counter;
+
+        function generateQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quoteDisplay').textContent = quotes[randomIndex];
+            counter++;
+            document.getElementById('count').textContent = counter;
+            localStorage.setItem('quoteCounter', counter);
+        }
+    </script>
+</body>
+</html>
+​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
